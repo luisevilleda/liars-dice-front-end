@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jonathan Spies <jonathan.spies@gmail.com>",
@@ -15,6 +16,7 @@
     "express": "^4.13.3",
     "mustache": "latest",
     "mustache-express": "latest",
-    "nedb": "^1.1.3"
+    "nedb": "^1.1.3",
+    "nodemon": "^1.11.0"
   }
 }
