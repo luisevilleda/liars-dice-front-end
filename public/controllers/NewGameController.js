@@ -16,7 +16,7 @@ app.controller('NewGameController',
         console.log(response);
         if (response.status === 200) {
           provideGameData.addGame(response.data);
-          $location.url('/game');
+          $location.url('/game/' + response.data._id);
         } else {
           console.log('error: ', response.data);  
         };

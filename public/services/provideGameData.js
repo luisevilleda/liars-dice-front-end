@@ -1,6 +1,6 @@
 var app = angular.module('myApp');
 
-app.service('provideGameData', function() {
+app.service('provideGameData', function($http, baseUrl) {
   var games = [];
 
   this.addGame = function(game) {
@@ -8,7 +8,10 @@ app.service('provideGameData', function() {
   };
 
   this.getGames = function() {
-    return games;
+    return $http({
+      method: 'GET',
+      url: baseUrl + '/games'
+    });
   };
 
 });

@@ -1,7 +1,6 @@
-var baseUrl = 'http://localhost:8080';
 var app = angular.module('myApp');
 
-app.service('initializeGame', function($http) {
+app.service('initializeGame', function($http, baseUrl) {
   this.init = function(numDice, numPlayers) {
     var body = {
       numDice: numDice,
