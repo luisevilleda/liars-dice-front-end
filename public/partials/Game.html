@@ -1,0 +1,14 @@
+<div>
+  <!-- Current Game UI -->
+  <h4>Game ID: {{games[0]._id}}</h4>
+
+  <h4>Player hands:</h4>
+  <div ng-repeat="hand in games[0].playerHands track by $index">
+    Player {{$index}} hand: {{ hand }}
+  </div>
+
+  <h4>Actions:</h4>
+  <div ng-repeat="action in games[0].actions track by $index">
+    Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
+  </div>
+</div>
