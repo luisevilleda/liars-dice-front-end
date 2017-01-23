@@ -11,4 +11,5 @@
   <div ng-repeat="action in currentGame.actions track by $index">
     Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
   </div>
+  <div data-ng-include="'/partials/PlayerDashboard.html'"></div>
 </div>
