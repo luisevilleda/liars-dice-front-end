@@ -22,9 +22,9 @@ app.post('/games', function(req, res, next) {
   var game = new Game(req.body);
   game.save(function(errors) {
     if (errors) {
-      res.json(errors);
+      res.status(400).json(errors);
     } else {
-      res.json(game.document);
+      res.status(200).json(game.document);
     }
   });
 });
