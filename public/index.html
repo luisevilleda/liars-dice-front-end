@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body ng-app="myApp">
+
   <div ng-controller="GameController">
     <!-- Current Game UI -->
     <h4>Game ID: {{games[0]._id}}</h4>
@@ -20,9 +21,13 @@
       Player {{ action.player }} claimed there are {{ action.claimNumber }} {{ action.claimFace }}'s
     </div>
   </div>
-
+  <!-- Angular -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <!-- App -->
   <script src="app.js"></script>
+  <!-- Controllers -->
   <script src="controllers/GameController.js"></script>
+  <!-- Services -->
+  <script src="services/initializeGame.js"></script>
   </body>
 </html>

@@ -1,6 +1,12 @@
 var app = angular.module('myApp');
 
-app.controller('GameController', ['$scope', function($scope) {
+app.controller('GameController', ['$scope', 'initializeGame', function($scope, initializeGame) {
+  console.log(initializeGame)
+  initializeGame.init()
+  .then(function(response) {
+    console.log(response.data);
+  });
+
   $scope.games = [
     {
       _id: '12345abcde',
