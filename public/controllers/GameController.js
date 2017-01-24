@@ -7,24 +7,16 @@ app.controller('GameController',
   'initializeGame',
   'provideGameData',
   function($scope, $location, $routeParams, initializeGame, provideGameData) {
-    provideGameData.ajaxGetGames()
+    provideGameData.ajaxGetGame($routeParams.id)
     .then(function(response) {
-      // Handle no games existing
-      if (response.data.length === 0) {
-        return $location.url('/newGame');
-      };
-
-      $scope.games = response.data;
-      $scope.currentGame = response.data.filter(function(game){
-        return game._id === $routeParams.id;
-      })[0];
-
-      // Handle the id of that game not existing
-      if ($scope.currentGame === undefined) {
-        return $location.url('/newGame');
-      };
-
-      provideGameData.setCurrentGame($scope.currentGame);
+      console.log('Game response:', response);
+      $scope.currentGame = response.data;
+      console.log('setting currentGame to: ', response.data);
+      provideGameData.setCurrentGame(response.data);
+      $scope.ajaxFinish = true;
+    })
+    .catch(function(err) {
+      return $location.url('/newGame');
     });
   }]
 );

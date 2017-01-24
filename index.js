@@ -76,8 +76,15 @@ app.get('/games', function(req, res) {
 
 /* Get one game by id */
 app.get('/games/:id', function(req, res) {
-  Game.find(req.params.id, function(game) {
-    res.json(game.document);
+  console.log('ID to find: ', req.params.id)
+  Game.find(req.params.id, function(error, game) {
+    if (error instanceof Error) {
+      console.log('Sending a 400 error');
+      res.status(400).json('Error');
+      return;
+    } else {
+      res.json(game.document);
+    };
   });
 });
 

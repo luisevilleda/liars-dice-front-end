@@ -13,9 +13,10 @@ app.controller('NewGameController',
     $scope.startGame = function() {
       initializeGame.init($scope.numDice, $scope.numPlayers)
       .then(function(response) {
-        console.log(response);
+        console.log('Got a POST response: ', response);
         if (response.status === 200) {
-          provideGameData.addGame(response.data);
+          // provideGameData.setCurrentGame();
+          console.log('Changing location to: ', '/game/' + response.data._id);
           $location.url('/game/' + response.data._id);
         } else {
           console.log('error: ', response.data);  

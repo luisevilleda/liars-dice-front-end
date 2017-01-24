@@ -30,7 +30,13 @@ Game.all = function(cb) {
 
 Game.find = function(_id, cb) {
   db.findOne({_id: _id}, function(error, game) {
-    cb(new Game(game));
+    console.log('Results of findone: ', game);
+    if (game === null) {
+      console.log('Couldnt find game');
+      cb(new Error('Error finding game'));
+    } else {
+      cb(null, new Game(game));
+    };
   });
 };
 
