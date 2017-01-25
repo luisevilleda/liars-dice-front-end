@@ -22,6 +22,11 @@ Action.removeDice = function(game, num, face, player) {
 };
 
 Action.add = function(game, action, cb) {
+  console.log('Params to Action.add:');
+  console.log('game', game);
+  console.log('action', action);
+  console.log('cb', cb);
+
   game.document.actions.unshift(action);
 
   if (action.actionType == "claim") {

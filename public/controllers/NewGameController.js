@@ -3,15 +3,15 @@ var app = angular.module('myApp');
 app.controller('NewGameController',
   ['$scope',
   '$location',
-  'initializeGame',
+  'ajaxCalls',
   'provideGameData',
-  function($scope, $location, initializeGame, provideGameData) {
+  function($scope, $location, ajaxCalls, provideGameData) {
     $scope.numDice = 5;
     $scope.numPlayers = 2;
 
     // Query user for new game info
     $scope.startGame = function() {
-      initializeGame.init($scope.numDice, $scope.numPlayers)
+      ajaxCalls.init($scope.numDice, $scope.numPlayers)
       .then(function(response) {
         console.log('Got a POST response: ', response);
         if (response.status === 200) {

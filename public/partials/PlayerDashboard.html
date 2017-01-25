@@ -2,4 +2,65 @@
   <div>Player {{ currentPlayer }}'s turn</div>
   <div>Your Hand</div>
   <div>{{ playerHand }}</div>
+
+  <form name="claimForm">
+    Your claim:
+    There are at least this many
+    <input
+      name="claimNumber"
+      type="number"
+      data-ng-model="claimNumber"
+      min=0
+      required
+    />
+    <span
+      ng-show="claimForm.claimNumber.$touched && claimForm.claimNumber.$invalid">
+      Please enter a number 0 or greater.
+    </span>
+
+    dice of face
+    <input
+      name="claimFace"
+      type="number"
+      data-ng-model="claimFace"
+      min=1
+      max=6
+      required
+    />
+    <span
+      ng-show="claimForm.claimFace.$touched && claimForm.claimFace.$invalid">
+      Please enter a number 1-6.
+    </span>
+    <br />
+    I would like to move this many dice
+    <input
+      name="moveNumber"
+      type="number"
+      min=0
+      data-ng-model="moveNumber"
+      input-number-range-validator
+      required
+    />
+    <span ng-show="claimForm.moveNumber.$touched && claimForm.moveNumber.$invalid">
+      Please enter a number greater than  or equal to 0.
+    </span>
+
+    of this face
+    <input
+      name="moveFace"
+      type="number"
+      data-ng-model="moveFace"
+      min=1
+      max=6
+      required
+    />
+    <span
+      ng-show="claimForm.moveFace.$touched && claimForm.moveFace.$invalid">
+      Please enter a number 1-6.
+    </span>
+    to the middle.
+    <button ng-click="claimButton()">Claim</button>
+  </form>
+
+  <button ng-click="challengeButton">Challenge</button>
 </div>

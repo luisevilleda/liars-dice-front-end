@@ -41,7 +41,7 @@ app.post('/games', function(req, res, next) {
   moveFace: (Integer) the face of the die moved onto the board
  */
 app.post('/games/:id/claim', function(req, res) {
-  Game.find(req.params.id, function(game) {
+  Game.find(req.params.id, function(error, game) {
     Action.add(game, {
       actionType: "claim",
       claimNumber: parseInt(req.body.claimNumber),
@@ -57,7 +57,7 @@ app.post('/games/:id/claim', function(req, res) {
 
 /* this endpoint returns true or false based on whether the last claim exists */
 app.post('/games/:id/challenge', function(req, res) {
-  Game.find(req.params.id, function(game) {
+  Game.find(req.params.id, function(error, game) {
     Action.add(game, {
       actionType: "challenge",
       player: req.body.player

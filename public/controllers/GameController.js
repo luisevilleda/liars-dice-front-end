@@ -4,9 +4,9 @@ app.controller('GameController',
   ['$scope',
   '$location',
   '$routeParams',
-  'initializeGame',
+  'ajaxCalls',
   'provideGameData',
-  function($scope, $location, $routeParams, initializeGame, provideGameData) {
+  function($scope, $location, $routeParams, ajaxCalls, provideGameData) {
     provideGameData.ajaxGetGame($routeParams.id)
     .then(function(response) {
       console.log('Game response:', response);
